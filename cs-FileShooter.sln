@@ -9,7 +9,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeAshUtility", "..\cs-Tak
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfUtility", "..\cs-WpfUtility\WpfUtility\WpfUtility.csproj", "{2F2D7E12-1121-4E38-AEF9-3E0BD51DA099}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileShooter_Test", "FileShooter_Test\FileShooter_Test.csproj", "{0074A3D7-AEF2-4306-A5E5-FEE4A3D5EBCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileShooter_Test", "FileShooter_Test\FileShooter_Test.csproj", "{0074A3D7-AEF2-4306-A5E5-FEE4A3D5EBCF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ソリューション項目", "ソリューション項目", "{18463726-6584-476F-BFF1-ED112D6255CB}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		Doxyfile = Doxyfile
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
