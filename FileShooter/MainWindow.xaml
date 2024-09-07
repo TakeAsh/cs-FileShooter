@@ -1,0 +1,164 @@
+﻿<Window
+	x:Class="FileShooter.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:wu="clr-namespace:WpfUtility;assembly=WpfUtility"
+    xmlns:local="clr-namespace:FileShooter"
+    mc:Ignorable="d"
+    Title="FileShooter"
+	Width="600" Height="400" MinWidth="300" MinHeight="200"
+	Icon="/ApplicationIcon.ico"
+	Loaded="Window_Loaded">
+	<Window.Resources>
+		<Style TargetType="Image">
+			<Setter Property="Stretch" Value="Fill" />
+			<Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" />
+			<Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}" />
+		</Style>
+	</Window.Resources>
+	<TabControl>
+		<TabItem>
+			<TabItem.Header>
+				<StackPanel Orientation="Horizontal">
+					<Image Source="/Image/Start_16.png" />
+					<TextBlock>Run</TextBlock>
+				</StackPanel>
+			</TabItem.Header>
+			<DockPanel>
+				<Grid DockPanel.Dock="Top">
+					<StackPanel Orientation="Horizontal">
+						<Button x:Name="buttonRun" ToolTip="Run" Click="buttonRun_Click">
+							<Image Source="/Image/Start_32.png" />
+						</Button>
+						<Button x:Name="buttonStop" ToolTip="Stop" IsEnabled="False" Click="buttonStop_Click">
+							<Image Source="/Image/Stop_32.png" />
+						</Button>
+						<Button x:Name="buttonErase" ToolTip="Erase" Click="buttonErase_Click">
+							<Image Source="/Image/Erase32.png" />
+						</Button>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+						<Button x:Name="buttonExit" ToolTip="Exit" Click="buttonExit_Click">
+							<Image Source="/Image/Exit32.png" />
+						</Button>
+					</StackPanel>
+				</Grid>
+				<StatusBar DockPanel.Dock="Bottom">
+					<StatusBarItem HorizontalContentAlignment="Stretch">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<Grid Grid.Row="0">
+								<ProgressBar x:Name="progressBar_Sub"/>
+								<TextBlock x:Name="statusText_Sub" HorizontalAlignment="Center" />
+							</Grid>
+							<Grid Grid.Row="1">
+								<ProgressBar x:Name="progressBar_Phase"/>
+								<TextBlock x:Name="statusText_Phase" HorizontalAlignment="Center" />
+							</Grid>
+						</Grid>
+					</StatusBarItem>
+				</StatusBar>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+						<ColumnDefinition Width="10*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<TextBox
+						x:Name="textOut"
+						Grid.Row="0"
+						TextWrapping="Wrap"
+						AcceptsReturn="True"
+						VerticalScrollBarVisibility="Visible"
+						IsReadOnly="True" Grid.ColumnSpan="2" Margin="0,0,0,5" Grid.RowSpan="2" />
+					<GridSplitter
+						Grid.Row="1"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Center"
+						Height="5"
+						Cursor="SizeNS" Grid.ColumnSpan="2" />
+					<TextBox
+						x:Name="textErr"
+						Grid.Row="2"
+						TextWrapping="Wrap"
+						AcceptsReturn="True"
+						VerticalScrollBarVisibility="Visible"
+						IsReadOnly="True" Grid.ColumnSpan="2" />
+				</Grid>
+			</DockPanel>
+		</TabItem>
+		<TabItem
+			GotFocus="TabItem_GotFocus"
+			LostFocus="TabItem_LostFocus">
+			<TabItem.Header>
+				<StackPanel Orientation="Horizontal">
+					<Image Source="/Image/Settings16.png" />
+					<TextBlock>Settings</TextBlock>
+				</StackPanel>
+			</TabItem.Header>
+			<TabControl>
+				<TabItem
+					x:Name="tabItemSettingsBasic"
+					Header="Basic">
+					<DockPanel>
+						<ScrollViewer>
+							<StackPanel Orientation="Vertical">
+								<StackPanel Orientation="Horizontal">
+									<Label>Target Folder</Label>
+									<Button	x:Name="buttonSelectTargetFolder" ToolTip="Select Target Folder" Click="buttonSelectTargetFolder_Click">
+										<Image Source="/Image/Folder16.png" />
+									</Button>
+								</StackPanel>
+								<TextBox x:Name="textTargetFolder" />
+								<Label>Boundary Chars</Label>
+								<TextBox x:Name="textBoundaryChars" />
+							</StackPanel>
+						</ScrollViewer>
+					</DockPanel>
+				</TabItem>
+				<TabItem
+					x:Name="tabItemSettingsTitles"
+					Header="Titles">
+					<DockPanel>
+						<TextBox
+							x:Name="textTitles"
+							TextWrapping="Wrap"
+							AcceptsReturn="True"
+							VerticalScrollBarVisibility="Visible" />
+					</DockPanel>
+				</TabItem>
+				<TabItem
+					x:Name="tabItemSettingsLabels"
+					Header="Labels">
+					<DockPanel>
+						<TextBox
+							x:Name="textLabels"
+							TextWrapping="Wrap"
+							AcceptsReturn="True"
+							VerticalScrollBarVisibility="Visible" />
+					</DockPanel>
+				</TabItem>
+				<TabItem
+					x:Name="tabItemSettingsPreprocess"
+					Header="Preprocess">
+					<DockPanel>
+						<TextBox
+							x:Name="textPreprocess"
+							TextWrapping="Wrap"
+							AcceptsReturn="True"
+							VerticalScrollBarVisibility="Visible" />
+					</DockPanel>
+				</TabItem>
+			</TabControl>
+		</TabItem>
+	</TabControl>
+</Window>

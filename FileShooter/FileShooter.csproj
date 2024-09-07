@@ -1,0 +1,85 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <BaseOutputPath>..\</BaseOutputPath>
+    <Company>TakeAsh.net</Company>
+    <PackageIcon>ApplicationIcon.ico</PackageIcon>
+    <ApplicationIcon>ApplicationIcon.ico</ApplicationIcon>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="App.xaml.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="BoundaryChars.cs" />
+    <Compile Include="Labels.cs" />
+    <Compile Include="Logic.cs" />
+    <Compile Include="MainWindow.xaml.cs" />
+    <Compile Include="Phase.cs" />
+    <Compile Include="Preprocess.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="TargetFolder.cs" />
+    <Compile Include="Title.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="ApplicationIcon.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </Resource>
+    <None Include="App.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\cs-TakeAshUtility\TakeAshUtility\TakeAshUtility.csproj" />
+    <ProjectReference Include="..\..\cs-WpfUtility\WpfUtility\WpfUtility.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\Add_16.png" />
+    <Resource Include="Image\Add_32.png" />
+    <Resource Include="Image\Erase16.png" />
+    <Resource Include="Image\Erase32.png" />
+    <Resource Include="Image\Exit16.png" />
+    <Resource Include="Image\Exit32.png" />
+    <Resource Include="Image\Folder16.png" />
+    <Resource Include="Image\Folder32.png" />
+    <Resource Include="Image\Menu16.png" />
+    <Resource Include="Image\Menu32.png" />
+    <Resource Include="Image\Remove_16.png" />
+    <Resource Include="Image\Remove_32.png" />
+    <Resource Include="Image\Settings16.png" />
+    <Resource Include="Image\Settings32.png" />
+    <Resource Include="Image\Start_16.png" />
+    <Resource Include="Image\Start_32.png" />
+    <Resource Include="Image\Stop_16.png" />
+    <Resource Include="Image\Stop_32.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if &quot;$(ConfigurationName)&quot; == &quot;Release&quot; (&#xD;&#xA;  cd /d &quot;$(SolutionDir)&quot;&#xD;&#xA;  doxygen.exe Doxyfile&#xD;&#xA;)" />
+  </Target>
+
+</Project>

@@ -1,0 +1,100 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FileShooter.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WindowPlacement" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TargetFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="BoundaryChars" Type="System.String" Scope="User">
+      <Value Profile="(Default)">!#()_~▽「」『』【】〔〕・＂＜＞</Value>
+    </Setting>
+    <Setting Name="Titles" Type="System.String" Scope="User">
+      <Value Profile="(Default)">アニメ・ステラー
+---
+アニソンポッド
+アニソンミュージアム
+Anime &amp; Seiyu Music Night
+NHK MUSIC
+アニソン・アカデミー
+アニソンプレミアムRADIO
+アニソン89秒の世界
+歌謡スクランブル
+青春ラジメニア
+twilight Club DJ MIX
+Hits 200
+こだわりセットリスト
+クラシックの迷宮
+ミュージックライン
+名曲ヒットパレード
+音楽遊覧飛行
+×クラシック
+ふたりはプリキュア
+ふたりはプリキュアMaxHeart
+ふたりはプリキュアSplash☆Star
+Yes!プリキュア5
+Yes!プリキュア5GoGo!
+フレッシュプリキュア!
+ハートキャッチプリキュア!
+スイートプリキュア♪
+スマイルプリキュア!
+ドキドキ!プリキュア
+ハピネスチャージプリキュア!
+Go!プリンセスプリキュア
+魔法つかいプリキュア!
+キラキラ☆プリキュアアラモード
+HUGっと!プリキュア
+スター☆トゥインクルプリキュア
+ヒーリングっど・プリキュア
+トロピカル～ジュ!プリキュア
+デリシャスパーティ♡プリキュア
+  デリシャスパーティ・プリキュア
+ひろがるスカイ!プリキュア
+わんだふるぷりきゅあ!
+angela
+  angelaのsparking! talking! show!
+水樹奈々
+  水樹奈々スマイル・ギャング
+谷山浩子
+  谷山浩子ノセカイ
+林原めぐみ
+  林原めぐみのTokyo Boogie Night
+井澤詩織
+  井澤詩織のしーちゃんねる
+○○!ゲームおんがく きこうぜ!
+---
+ラジオ
+  RaNi Music♪
+アニソン♪おとのくに
+  Live Music
+  FMおとくに
+ラジオ深夜便
+調布FM
+</Value>
+    </Setting>
+    <Setting Name="Labels" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\(生放送\)
+生放送・
+配信限定
+TVアニメ
+^特撮ドラマ\s+
+^アニメ\s+</Value>
+    </Setting>
+    <Setting Name="Preprocess" Type="System.String" Scope="User">
+      <Value Profile="(Default)">- RaNi Music♪Start
+  RaNi Music♪ Start
+- RaNi Music♪Morning
+  RaNi Music♪ Morning
+- RaNi Music♪Day
+  RaNi Music♪ Day
+- RaNi Music♪Evening
+  RaNi Music♪ Evening
+- ×(かける)クラシック
+  ×クラシック
+- トロピカル~ジュ!プリキュア
+  トロピカル～ジュ!プリキュア</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
