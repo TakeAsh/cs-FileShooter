@@ -1,7 +1,0 @@
-<map id="FileShooter.Labels" name="FileShooter.Labels">
-<area shape="rect" id="Node000001" title=" " alt="" coords="88,80,218,107"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,141,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,41,141,78,137,82,96,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="165,5,301,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="210,44,169,82,165,78,206,41"/>
-</map>
