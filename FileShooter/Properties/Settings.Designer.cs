@@ -65,6 +65,7 @@ namespace FileShooter.Properties {
 ---
 アニソンポッド
 アニソンミュージアム
+  エフエムさがみ
 Anime & Seiyu Music Night
 NHK MUSIC
 アニソン・アカデミー

@@ -1,7 +1,18 @@
-# FileShooter 
+# FileShooter ![ApplicationIcon](https://raw.githubusercontent.com/TakeAsh/cs-FileShooter/master/Utils/ApplicationIcon128.png)
 Moves the files into subfolders according to its name
 
-![ApplicationIcon](https://raw.githubusercontent.com/TakeAsh/cs-FileShooter/master/Utils/ApplicationIcon128.png)
+## Examples
+
+| File name | Folder to be moved |
+| --- | --- |
+| アニメ・ステラー ラブライブ!音楽特集 r1 2024-09-03 20-05.m4a | アニメ・ステラー |
+| ×(かける)クラシック▽第187駅 ゲーム×クラシック(3) fm 2024-05-31 07-25.m4a | ×クラシック |
+| 林原めぐみのTokyo Boogie Night CRK 2024-09-07 23-00.m4a | 林原めぐみ |
+| Live Music アニおと 林原めぐみ FMおとくに 2023-11-16 22-00.m4a | 林原めぐみ |
+| Live Music アニおと 子門真人 FMおとくに 2024-07-04 22-00.m4a | アニソン♪おとのくに |
+| 調布FM『アニソンカバーズ』 調布FM 2024-01-01 15-00.m4a | 調布FM |
+| RaNi Music♪Morning RN2 2024-08-28 10-00.m4a | ラジオ |
+| エフエムさがみ_20240812100028293.asf | アニソンミュージアム |
 
 ## How to use
 
