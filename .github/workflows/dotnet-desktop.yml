@@ -66,6 +66,16 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+    - name: Checkout TakeAshUtility
+      uses: actions/checkout@v4
+      with:
+        repository: TakeAsh/cs-TakeAshUtility
+        path: cs-TakeAshUtility
+    - name: Checkout WpfUtility
+      uses: actions/checkout@v4
+      with:
+        repository: TakeAsh/cs-WpfUtility
+        path: cs-WpfUtility
 
     # Install the .NET Core workload
     - name: Install .NET Core
