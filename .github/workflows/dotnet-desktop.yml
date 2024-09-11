@@ -102,7 +102,7 @@ jobs:
 
     # Execute NUnit test
     - name: Check directory
-      run: tree
+      run: tree ..
     #- name: Install NUnit.ConsoleRunner
     #  run: nuget install NUnit.ConsoleRunner -Version 3.18.1 -DirectDownload -OutputDirectory .
     #- name: Execute NUnit tests
