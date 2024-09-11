@@ -90,19 +90,19 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
 
-    # Execute all unit tests in the solution
-    #- name: Execute unit tests
-    #  run: dotnet test
-
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
 
+    # Execute all unit tests in the solution
+    - name: Execute unit tests
+      run: dotnet test
+
     # Execute NUnit test
-    - name: Check directory
-      run: tree ..
+    #- name: Check directory
+    #  run: tree ..
     #- name: Install NUnit.ConsoleRunner
     #  run: nuget install NUnit.ConsoleRunner -Version 3.18.1 -DirectDownload -OutputDirectory .
     #- name: Execute NUnit tests
