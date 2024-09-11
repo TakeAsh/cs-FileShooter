@@ -97,6 +97,8 @@ jobs:
         Configuration: ${{ matrix.configuration }}
 
     # Execute all unit tests in the solution
+    - name: Install NETFramework ReferenceAssemblies
+      run: nuget install Microsoft.NETFramework.ReferenceAssemblies
     - name: Execute unit tests
       run: dotnet test $env:Test_Project_Path
 
