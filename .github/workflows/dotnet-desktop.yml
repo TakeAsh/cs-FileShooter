@@ -64,6 +64,15 @@ jobs:
       Test_Project_Name: FileShooter_Test
 
     steps:
+
+    # Install WinGet
+    #- name: Install winget
+    #  uses: Cyberboss/install-winget@v1
+
+    # Install .NET 8
+    - name: Install Microsoft.DotNet.SDK.8
+      run: winget install Microsoft.DotNet.SDK.8
+
     - name: Checkout cs-FileShooter
       uses: actions/checkout@v4
       with:
@@ -79,14 +88,6 @@ jobs:
       with:
         repository: TakeAsh/cs-WpfUtility
         path: cs-WpfUtility
-
-    # Install WinGet
-    - name: Install winget
-      uses: Cyberboss/install-winget@v1
-
-    # Install .NET 8
-    - name: Install Microsoft.DotNet.SDK.8
-      run: winget install Microsoft.DotNet.SDK.8
 
     # Install the .NET Core workload
     - name: Install .NET Core
