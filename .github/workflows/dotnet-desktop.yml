@@ -66,8 +66,8 @@ jobs:
     steps:
 
     # Install WinGet
-    #- name: Install winget
-    #  uses: Cyberboss/install-winget@v1
+    - name: Install winget
+      uses: Cyberboss/install-winget@v1
 
     # Install .NET 8
     - name: Install Microsoft.DotNet.SDK.8
