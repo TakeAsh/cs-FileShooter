@@ -80,6 +80,14 @@ jobs:
         repository: TakeAsh/cs-WpfUtility
         path: cs-WpfUtility
 
+    # Install WinGet
+    - name: Install winget
+      uses: Cyberboss/install-winget@v1
+
+    # Install .NET 8
+    - name: Install Microsoft.DotNet.SDK.8
+      run: winget install Microsoft.DotNet.SDK.8
+
     # Install the .NET Core workload
     - name: Install .NET Core
       uses: actions/setup-dotnet@v4
