@@ -96,15 +96,7 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Find files matching "*_Test.dll"
-      uses: jeertmans/filesfinder@latest
-      id: ff
-      with:
-        # Only argument, a single string, to be passed as arguments to ff.
-        # See `ff --help` for more help.
-        # Default: "*"
-        args: "*_Test.dll"
-    - name: Print files
-      run: echo "${{ steps.ff.outputs.files }}"
+      run: find . -name "*_Test.dll"
     - name: Execute unit tests
       run: dotnet test "${{ steps.ff.outputs.files }}"
 
