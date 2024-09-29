@@ -106,11 +106,19 @@ namespace FileShooter {
         }
 
         public void AddTextOut(string text) {
-            this.Dispatcher.Invoke(() => { textOut.Text += $"{text}\n"; });
+            this.Dispatcher.Invoke(() => {
+                textOut.Text += $"{text}\n";
+                textOut.CaretIndex = textOut.Text.Length;
+                textOut.ScrollToEnd();
+            });
         }
 
         public void AddTextErr(string text) {
-            this.Dispatcher.Invoke(() => { textErr.Text += $"{text}\n"; });
+            this.Dispatcher.Invoke(() => {
+                textErr.Text += $"{text}\n";
+                textErr.CaretIndex = textErr.Text.Length;
+                textErr.ScrollToEnd();
+            });
         }
 
         protected override void OnSourceInitialized(EventArgs e) {
