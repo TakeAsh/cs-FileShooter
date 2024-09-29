@@ -83,7 +83,16 @@ namespace FileShooter {
         }
 
         public override string? ToString() {
-            return new[] { Simple ?? "" }.Concat(Multi ?? []).JoinToString("\n");
+            var items = new List<string>();
+            if (!String.IsNullOrEmpty(Simple)) {
+                items.Add(Simple);
+            }
+            if (Multi != null && Multi.Count() > 0) {
+                items.AddRange(Multi);
+            }
+            return items.Count == 0
+                ? ""
+                : items.JoinToString("\n");
         }
 
         public TitlePatterns FromString(string source) {
