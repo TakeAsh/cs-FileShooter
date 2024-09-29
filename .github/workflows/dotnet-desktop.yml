@@ -95,8 +95,18 @@ jobs:
         Configuration: ${{ matrix.configuration }}
 
     # Execute all unit tests in the solution
+    - name: Find files matching "*_Test.dll"
+      uses: jeertmans/filesfinder@latest
+      id: ff
+      with:
+        # Only argument, a single string, to be passed as arguments to ff.
+        # See `ff --help` for more help.
+        # Default: "*"
+        args: "*_Test.dll"
+    - name: Print files
+      run: echo "${{ steps.ff.outputs.files }}"
     - name: Execute unit tests
-      run: dotnet test ${{ matrix.configuration }}/$env:Test_Project_Path
+      run: dotnet test "${{ steps.ff.outputs.files }}"
 
     # Decode the base 64 encoded pfx and save the Signing_Certificate
     #- name: Decode the pfx
