@@ -84,9 +84,7 @@ namespace FileShooter {
 
         public override string? ToString() {
             var items = new List<string>();
-            if (!String.IsNullOrEmpty(Simple)) {
-                items.Add(Simple);
-            }
+            items.Add(Simple ?? "");
             if (Multi != null && Multi.Count() > 0) {
                 items.AddRange(Multi);
             }
