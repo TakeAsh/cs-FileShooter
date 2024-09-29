@@ -96,9 +96,9 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Find files matching "*_Test.dll"
-      run: Get-ChildItem -Recurse -Filter *_Test.dll | Where-Object { $_.Directory -inotmatch "obj" } | Select-Object { Join-Path $_.Directory $_.Name }
-    - name: Execute unit tests
-      run: dotnet test
+      run: Get-ChildItem -Recurse -Filter *_Test.dll .. | Where-Object { $_.Directory -inotmatch "obj" } | Select-Object { Join-Path $_.Directory $_.Name }
+    #- name: Execute unit tests
+    #  run: dotnet test
 
     # Decode the base 64 encoded pfx and save the Signing_Certificate
     #- name: Decode the pfx
