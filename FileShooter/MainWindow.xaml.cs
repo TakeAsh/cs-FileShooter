@@ -48,6 +48,8 @@ namespace FileShooter {
                     statusText_Phase.Text = $"{Phase} ({val}/{_phaseMax})";
                     TaskbarProgress.SetValue(_hWnd, val, _phaseMax);
                     textOut.Text += $"\n# {_phase.ToDescription()}\n";
+                    textOut.CaretIndex = textOut.Text.Length;
+                    textOut.ScrollToEnd();
                 });
             }
         }

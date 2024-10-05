@@ -12,7 +12,7 @@ namespace FileShooter.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.11.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -61,23 +61,23 @@ namespace FileShooter.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"アニメ・ステラー
+        [global::System.Configuration.DefaultSettingValueAttribute(@"アニメ・ステラー/Y
 ---
-アニソンポッド
-アニソンミュージアム
+アニソンポッド/Y
+アニソンミュージアム/Y
   エフエムさがみ
-Anime & Seiyu Music Night
-NHK MUSIC
-アニソン・アカデミー
-アニソンプレミアムRADIO
-アニソン89秒の世界
-歌謡スクランブル
-青春ラジメニア
-twilight Club DJ MIX
-Hits 200
-こだわりセットリスト
-クラシックの迷宮
-ミュージックライン
+Anime & Seiyu Music Night/Y
+NHK MUSIC/Y
+アニソン・アカデミー/Y
+アニソンプレミアムRADIO/Y
+アニソン89秒の世界/Y
+歌謡スクランブル/Y
+青春ラジメニア/Y
+twilight Club DJ MIX/Y
+Hits 200/Y
+こだわりセットリスト/Y
+クラシックの迷宮/Y
+ミュージックライン/Y
 名曲ヒットパレード
 音楽遊覧飛行
 ×クラシック
@@ -103,25 +103,25 @@ HUGっと!プリキュア
   デリシャスパーティ・プリキュア
 ひろがるスカイ!プリキュア
 わんだふるぷりきゅあ!
-angela
+angela/Y
   angelaのsparking! talking! show!
-水樹奈々
+水樹奈々/Y
   水樹奈々スマイル・ギャング
-谷山浩子
+谷山浩子/Y
   谷山浩子ノセカイ
-林原めぐみ
+林原めぐみ/Y
   林原めぐみのTokyo Boogie Night
-井澤詩織
+井澤詩織/Y
   井澤詩織のしーちゃんねる
-○○!ゲームおんがく きこうぜ!
+○○!ゲームおんがく きこうぜ!/Y
 ---
-ラジオ
+ラジオ/Y
   RaNi Music♪
-アニソン♪おとのくに
+アニソン♪おとのくに/Y
   Live Music
   FMおとくに
-ラジオ深夜便
-調布FM
+ラジオ深夜便/Y
+調布FM/Y
 ")]
         public string Titles {
             get {

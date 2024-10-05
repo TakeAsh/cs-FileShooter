@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -151,7 +152,9 @@ namespace FileShooter {
                             var m = reg.Simple.Match(file.Name);
                             if (m.Success) {
                                 var dir = m.Groups["Name"].Value;
-                                var dirFull = Path.Join(_settings.TargetFolder, dir);
+                                var dirFull = group.YearSubFolderNames.Contains(dir)
+                                    ? Path.Join(_settings.TargetFolder, dir, file.CreationTime.Year.ToString())
+                                    : Path.Join(_settings.TargetFolder, dir);
                                 if (!Directory.Exists(dirFull)) {
                                     Directory.CreateDirectory(dirFull);
                                 }
@@ -169,7 +172,9 @@ namespace FileShooter {
                                 var m = namedReg.Match(file.Name);
                                 if (m.Success) {
                                     var dir = namedReg.Name;
-                                    var dirFull = Path.Join(_settings.TargetFolder, dir);
+                                    var dirFull = namedReg.YearSubFolder
+                                        ? Path.Join(_settings.TargetFolder, dir, file.CreationTime.Year.ToString())
+                                        : Path.Join(_settings.TargetFolder, dir);
                                     if (!Directory.Exists(dirFull)) {
                                         Directory.CreateDirectory(dirFull);
                                     }

@@ -11,34 +11,47 @@ namespace FileShooter {
 
     public class NamedRegex : Regex {
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
-        public NamedRegex(string name, string pattern) : base(pattern) {
+        public bool YearSubFolder { get; private set; }
+
+        public NamedRegex(string name, string pattern, bool yearSubFolder = false) : base(pattern) {
             Name = name;
+            YearSubFolder = yearSubFolder;
         }
     }
 
     public class Title : IComparable<Title> {
 
-        private static Properties.Settings _settings = Properties.Settings.Default;
+        private static readonly Properties.Settings _settings = Properties.Settings.Default;
+        private const string _optionYearSubFolder = "/Y";
 
-        public string Name { get; set; } = "";
-        public SortedSet<string>? Keywords { get; set; }
+        public string Name { get; private set; } = "";
+        public SortedSet<string>? Keywords { get; private set; }
+
+        public bool YearSubFolder { get; private set; }
 
         public bool IsBlank { get { return String.IsNullOrEmpty(Name); } }
 
         public bool IsNameOnly { get { return Keywords == null || Keywords.Count == 0; } }
 
         public Title(string name = "", SortedSet<string>? keywords = null) {
-            Name = name.Trim();
+            var trimmedName = name.Trim();
+            YearSubFolder = trimmedName.EndsWith(_optionYearSubFolder);
+            Name = YearSubFolder
+                ? trimmedName.Remove(trimmedName.Length - _optionYearSubFolder.Length)
+                : trimmedName;
             Keywords = keywords ?? new SortedSet<string>();
         }
 
         public override string ToString() {
             if (IsBlank) { return ""; }
+            var name = YearSubFolder
+                ? Name + _optionYearSubFolder
+                : Name;
             return IsNameOnly
-                ? Name
-                : $"{Name}\n{Keywords?.Select(kw => $"  {kw}").JoinToString("\n")}";
+                ? name
+                : $"{name}\n{Keywords?.Select(kw => $"  {kw}").JoinToString("\n")}";
         }
 
         public int CompareTo(Title? other) {
@@ -69,8 +82,8 @@ namespace FileShooter {
         public NamedRegex ToRegex() {
             var patternBoundary = _settings.BoundaryChars.To<BoundaryChars>().ToPattern();
             return IsNameOnly
-                ? new NamedRegex(Name, $"(?<Name>{Name})")
-                : new NamedRegex(Name, $"(^|{patternBoundary})(?<Name>{ToPattern()}){patternBoundary}");
+                ? new NamedRegex(Name, $"(?<Name>{Name})", YearSubFolder)
+                : new NamedRegex(Name, $"(^|{patternBoundary})(?<Name>{ToPattern()}){patternBoundary}", YearSubFolder);
         }
     }
 
@@ -109,9 +122,11 @@ namespace FileShooter {
 
     public class TitleGroup : SortedSet<Title> {
 
-        private static Properties.Settings _settings = Properties.Settings.Default;
+        private static readonly Properties.Settings _settings = Properties.Settings.Default;
 
         public bool IsBlank { get { return this.Count == 0; } }
+
+        public SortedSet<string> YearSubFolderNames { get; private set; } = new SortedSet<string>();
 
         public IEnumerable<Title> SimpleTitles { get { return this.Where(t => t.IsNameOnly); } }
 
@@ -130,6 +145,9 @@ namespace FileShooter {
                     existing.Merge(title);
                 } else {
                     base.Add(title);
+                }
+                if (title.YearSubFolder) {
+                    YearSubFolderNames.Add(title.Name);
                 }
             }
             return this;

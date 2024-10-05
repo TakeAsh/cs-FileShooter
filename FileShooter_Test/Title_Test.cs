@@ -12,7 +12,7 @@ namespace FileShooter_Test {
         public void Setup() {
         }
 
-        public static void AreEqualByJson(object expected, object actual) {
+        private static void AreEqualByJson(object expected, object actual) {
             var expectedJson = JsonSerializer.Serialize(expected);
             var actualJson = JsonSerializer.Serialize(actual);
             ClassicAssert.AreEqual(expectedJson, actualJson);
@@ -43,6 +43,23 @@ namespace FileShooter_Test {
         [TestCase(
             "aaa\nbbb\n  444\n  222\nccc\nbbb\n  333\n  111\nddd",
             "aaa\nbbb\n  111\n  222\n  333\n  444\nccc\nddd"
+        )]
+        [TestCase("aaa/Y", "aaa/Y")]
+        [TestCase("aaa/Y\nbbb/Y\nccc/Y\nddd/Y", "aaa/Y\nbbb/Y\nccc/Y\nddd/Y")]
+        [TestCase("bbb/Y\naaa/Y\nddd/Y\nccc/Y", "aaa/Y\nbbb/Y\nccc/Y\nddd/Y")]
+        [TestCase("aaa/Y\n  AAA\nbbb/Y\nccc/Y\n  CCC\n  DDD\nddd/Y", "aaa/Y\n  AAA\nbbb/Y\nccc/Y\n  CCC\n  DDD\nddd/Y")]
+        [TestCase("bbb/Y\naaa/Y\n  AAA\nddd/Y\nccc/Y\n  CCC\n  DDD", "aaa/Y\n  AAA\nbbb/Y\nccc/Y\n  CCC\n  DDD\nddd/Y")]
+        [TestCase(
+            "aaa/Y\nbbb/Y\nccc/Y\n---\nddd/Y\neee/Y\nfff/Y\n---\nggg/Y\nhhh/Y\niii/Y",
+            "aaa/Y\nbbb/Y\nccc/Y\n---\nddd/Y\neee/Y\nfff/Y\n---\nggg/Y\nhhh/Y\niii/Y"
+        )]
+        [TestCase(
+            "aaa/Y\n  AAA\n  BBB\nbbb/Y\nccc/Y\n---\nddd/Y\neee/Y\nfff/Y\n  CCC\n  DDD\n---\nggg/Y\nhhh/Y\n  EEE\n  FFF\niii/Y",
+            "aaa/Y\n  AAA\n  BBB\nbbb/Y\nccc/Y\n---\nddd/Y\neee/Y\nfff/Y\n  CCC\n  DDD\n---\nggg/Y\nhhh/Y\n  EEE\n  FFF\niii/Y"
+        )]
+        [TestCase(
+            "aaa/Y\nbbb/Y\n  444\n  222\nccc/Y\nbbb/Y\n  333\n  111\nddd/Y",
+            "aaa/Y\nbbb/Y\n  111\n  222\n  333\n  444\nccc/Y\nddd/Y"
         )]
         public void Titles_FromString(string input, string expected) {
             ClassicAssert.AreEqual(expected, input.To<Titles>().ToString());
