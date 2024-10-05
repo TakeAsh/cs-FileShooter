@@ -29,7 +29,7 @@ namespace FileShooter {
     /// </summary>
     public partial class MainWindow : Window {
 
-        private Properties.Settings _settings = Properties.Settings.Default;
+        private readonly Properties.Settings _settings = Properties.Settings.Default;
         private WindowPlacement? _placement;
         private IntPtr _hWnd;
         private Logic _logic;
