@@ -29,7 +29,10 @@ namespace FileShooter {
                 var pair = lines.Skip(position).Take(2);
                 var mFrom = _regFrom.Match(pair.First());
                 var mTo = _regTo.Match(pair.Last());
-                if (mFrom == null || !mFrom.Success || mTo == null || !mTo.Success) { continue; }
+                if (mFrom == null || !mFrom.Success
+                    || mTo == null || !mTo.Success
+                    || mFrom.Groups["From"].Value == mTo.Groups["To"].Value
+                ) { continue; }
                 this[mFrom.Groups["From"].Value] = mTo.Groups["To"].Value;
             }
             return this;

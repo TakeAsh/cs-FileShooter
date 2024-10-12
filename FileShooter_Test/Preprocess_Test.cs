@@ -34,6 +34,10 @@ namespace FileShooter_Test {
             "- aaa\n  AAA\n- \" bbb\"\n  BBB\n- \'ccc \'\n  CCC\n- \" ddd \"\n  DDD",
             "- \" bbb\"\n  BBB\n- \" ddd \"\n  DDD\n- aaa\n  AAA\n- \"ccc \"\n  CCC"
         )]
+        [TestCase(
+            "- aaa\n  AAA\n- bbb\n  bbb\n- ccc\n  CCC",
+            "- aaa\n  AAA\n- ccc\n  CCC"
+        )]
         public void Preprocess_FromString(string? input, string? expected) {
             ClassicAssert.AreEqual(expected, input.To<Preprocess>().ToString());
         }
